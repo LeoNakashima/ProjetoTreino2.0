@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #222;
+  }
+  
+  .app {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 70px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: #047857;
+  }
+  
+  .menu button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    cursor: pointer;
+  }
+  
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+  
+  .brand {
+    font-weight: bold;
+    color: #047857;
+    font-size: 1.2rem;
+  }
+
+  
+  .avatar {
+    background: #f87171;
+    color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .breadcrumb {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .login-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+  }
+  
+  .login-section h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-section p {
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .login-form input {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .btn-primary {
+    background: #047857;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .btn-link {
+    background: none;
+    border: none;
+    color: #047857;
+    cursor: pointer;
+  }
+  
