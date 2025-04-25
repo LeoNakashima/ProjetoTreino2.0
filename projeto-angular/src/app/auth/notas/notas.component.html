@@ -1,1 +1,75 @@
-<p>notas works!</p>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="container">
+    <h1 class="titulo">Gerenciamento de notas</h1>
+ 
+    <div class="barra-superior">
+        <div class="input-pesquisa">
+            <img src="../../assets/lupa.png" alt="Buscar" class="icone-lupa" />
+            <input type="text" placeholder="Buscar por nome" id="busca" />
+          </div>
+         
+ 
+      <button class="botao-cadastrar" (click)="fazerCadastro()">
+        <img src="../../assets/iconCadastro.png" alt="" class="icone-cadastro"> Cadastrar Aluno
+      </button>
+    </div>
+ 
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ano</th>
+            <th>Série</th>
+            <th>Exatas</th>
+            <th>Linguagens</th>
+            <th>Ciências</th>
+            <th>Média</th>
+            <th>Situação</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><span class="aprovado">Aprovado</span></td>
+            <td>
+              <button class="botao-acao">⋮</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+ 
+    <div class="paginacao">
+      <div class="itens-por-pagina">
+        Item por página:
+        <select>
+          <option>5</option>
+          <option>10</option>
+          <option>15</option>
+        </select>
+      </div>
+ 
+      <div class="controles-paginacao">
+        <button disabled>&lt;</button>
+        <button class="pagina-ativa">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <span>...</span>
+        <button>&gt;</button>
+      </div>
+    </div>
+  </div>
