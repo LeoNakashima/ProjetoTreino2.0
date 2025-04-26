@@ -12,6 +12,22 @@ import { Router } from '@angular/router';
 export class NotasComponent {
   constructor(private router: Router) {}
   fazerCadastro() {
-    this.router.navigate(['cadastrarAluno']);
+    this.router.navigate(['cadastro-notas']);
+  }
+
+  menuAberto = false;
+
+  abrirMenu(){
+    this.menuAberto != this.menuAberto;
+
+  }
+
+  remover(){
+    
+
+  }
+
+  editar(){
+
   }
 }

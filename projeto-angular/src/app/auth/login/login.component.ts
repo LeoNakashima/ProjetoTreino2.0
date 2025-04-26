@@ -16,13 +16,13 @@ export class LoginComponent {
 
 
   fazerLogin(){
-    // Aqui você validaria o login, e ao sucesso:
+   
       this.router.navigate(['home']);
       alert("Login efetuado com sucesso!");
     
   }
   fazerCadastro() {
-    this.router.navigate(['cadastro']);
+    this.router.navigate(['cadastro-login']);
   }
   
 }

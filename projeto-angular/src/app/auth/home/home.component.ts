@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
   constructor(private router: Router) {}
   irGraficos(){
     this.router.navigate(['grafico']);
   }
   irNotas(){
-    this.router.navigate(['notas']);
+    this.router.navigate(['login']);
   }
 }

@@ -32,6 +32,7 @@
             <th>Ações</th>
           </tr>
         </thead>
+
         <tbody>
           <tr>
             <td></td>
@@ -44,7 +45,16 @@
             <td></td>
             <td><span class="aprovado">Aprovado</span></td>
             <td>
-              <button class="botao-acao">⋮</button>
+              <div class="menu-container">
+                <button class="botao-acao" (click)="abrirMenu()">⋮</button>
+
+                <div class="menu" *ngif="menuAberto">
+                  <button (click)="remover()">Remover</button>
+                  <button (click)="editar()">Editar</button>
+                </div>
+
+              </div>
+              
             </td>
           </tr>
         </tbody>
