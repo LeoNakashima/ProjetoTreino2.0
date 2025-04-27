@@ -14,7 +14,8 @@
       <input type="password" placeholder="Senha" name="password" required />
       <input type="text" placeholder="Nome" name="nome" required />
       <input type="text" placeholder="Gênero" name="genero" required />
-      <input type="text" placeholder="Data de Nascimento" name="data_nascimento" required />
+      <input type="text" placeholder="Data de Nascimento" onfocus="this.type='date'" 
+      onblur="if (!this.value) this.type='text'" name="data_nascimento" required>
       <input type="text" placeholder="Tipo de alimentação" name="tipo_alimentacao" required />
 
       <div class="button-group">

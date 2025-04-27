@@ -3,31 +3,36 @@
 
 <div class="main-content">
   <div class="auth-container">
-    <h1>Cadastrar Aluno</h1>
-
     <div class="breadcrumb">
       Início &gt; 
       <strong>Laboratório de Germinares</strong>
     </div>
 
-    <div class="indicaPag">
-      1
-      <strong>Informações Básicas</strong>
-      2
-      <strong>Notas</strong>
-    </div>
+    <h1>Cadastrar Aluno</h1>
+
+    <div class="step-navegation">
+      <div class="step-one">
+        <span class="step-number">1</span>
+        <strong>Informações Básicas</strong>
+      </div>
+      <div class="connector"></div>
+      <div class="step-two">
+        <span class="step-number">2</span>
+        <strong>Notas</strong>
+      </div>
 
     <form>
-      <input type="email" placeholder="E-mail">
-      <input type="text" placeholder="Nome Completo">
-      <input type="text" placeholder="Gênero">
-      <input type="date" placeholder="Data de Nascimento">
-      <input type="text" placeholder="Tipo de alimentação">
-      <input type="text" placeholder="Escolaridade Pais">
+      <input type="email" placeholder="E-mail" name="email" required />
+      <input type="text" placeholder="Nome Completo"name="email" required />
+      <input type="text" placeholder="Gênero" name="email" required />
+      <input type="text" placeholder="Data de Nascimento" onfocus="this.type='date'" 
+      onblur="if (!this.value) this.type='text'" name="data_nascimento" required />
+      <input type="text" placeholder="Tipo de alimentação"name="email" required />
+      <input type="text" placeholder="Escolaridade Pais"name="email" required />
 
       <div class="button-group">
-        <button (click)="descartar()">Descartar</button>
-        <button (click)="proximo()">Próximo</button>
+        <button class="btn primary" (click)="descartar()">Descartar</button>
+        <button class="btn secondary" (click)="proximo()">Próximo</button>
       </div>
     </form>
     

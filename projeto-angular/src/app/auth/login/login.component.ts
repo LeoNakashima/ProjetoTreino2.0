@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
+import { CadastroComponent } from "../cadastro/cadastro.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HeaderComponent, SidebarComponent],
+  imports: [FormsModule, HeaderComponent, SidebarComponent, CadastroComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

@@ -22,5 +22,25 @@
         </button>
       </div>
     </form>
+
+    <div *ngIf="naoLogado()"></div>
+
+    <!-- Login reprovado -->
+    <div class="card">
+      <div class="header">
+          <div class="icon">
+            <img src="/public/assets/boneca.png" alt="">
+          </div>
+      </div>
+      <div class="content">
+          <div class="title">Você não está cadastrado no sistema</div>
+          <div class="description">Tente realizar o cadastro</div>
+      </div>
+      <div class="footer">
+          <button class="close-button">Fechar</button>
+      </div>
+  </div>
+  
+
   </div>
 </div>

@@ -83,3 +83,86 @@ img{
   width: 16px; 
   height: 16px;
 }
+
+/* Login reprovado */
+
+/* Estilo geral para a página */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* cor de fundo da página */
+}
+
+/* Estilo do card */
+.card {
+  width: 100%;
+  width: 800px;
+  height: 750px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+/* Estilo do header */
+.header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  background-color: #333;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Estilo do conteúdo */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Estilo do footer */
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.close-button {
+  padding: 14px 24px;
+  background-color: #238662;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #1a6c4f;
+}

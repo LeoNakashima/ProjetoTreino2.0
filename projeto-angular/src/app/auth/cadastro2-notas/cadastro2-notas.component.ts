@@ -14,9 +14,13 @@ export class Cadastro2NotasComponent {
 
   constructor(private router:Router){}
 
-  descartar(){}
+  descartar(){
+    this.router.navigate(['notas'])
+
+  }
 
   cadastrar(){
+    this.router.navigate(['notas'])
     
   }
 

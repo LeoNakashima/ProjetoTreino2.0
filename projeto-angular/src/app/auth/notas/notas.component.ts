@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class NotasComponent {
   constructor(private router: Router) {}
+
+  validaCadastro = true;
+
   fazerCadastro() {
     this.router.navigate(['cadastro-notas']);
   }
@@ -30,4 +33,9 @@ export class NotasComponent {
   editar(){
 
   }
+
+
+  
+
+
 }
