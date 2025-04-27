@@ -13,18 +13,43 @@ import { CadastroComponent } from "../cadastro/cadastro.component";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  email: string = '';
+  password: string = '';
+  loginRejeitado: boolean = true;
+
   constructor(private router: Router) {}
 
+  fazerLogin(event?: Event) {
+    if (event) {
+      event.preventDefault(); // Evita o reload do form
+    }
 
-  fazerLogin(){
-   
-      this.router.navigate(['home']);
+    // Simulação de usuários cadastrados
+    const usuariosCadastrados = [
+      { email: 'teste@email.com', senha: '123456' },
+      { email: 'usuario@email.com', senha: 'abcdef' }
+    ];
+
+    const usuarioEncontrado = usuariosCadastrados.find(user =>
+      user.email === this.email && user.senha === this.password
+    );
+
+    if (usuarioEncontrado) {
+      this.loginRejeitado = false;
       alert("Login efetuado com sucesso!");
-    
+      this.router.navigate(['home']);
+    } else {
+      alert("Usuário ou senha incorretos!");
+      this.loginRejeitado = false;
+
+    }
   }
+
   fazerCadastro() {
     this.router.navigate(['cadastro-login']);
   }
-  
-}
 
+  fecharErro() {
+    this.loginRejeitado = false;
+  }
+}

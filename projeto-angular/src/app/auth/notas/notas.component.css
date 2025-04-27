@@ -1,212 +1,234 @@
+/* Container geral */
 .container {
-    padding: 2rem;
-    font-family: Arial, sans-serif;
-    padding-left: 100px;
-    font-weight: 500;
-    position: relative;
-    top: 50px;
-  }
- 
-  .titulo {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-  }
- 
-  .barra-superior {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    width: 1380px;
-  }
- 
-  .input-pesquisa input {
-    width: 100px;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    outline: none;
-  }
- 
-  .botao-cadastrar {
-    background-color: #22c55e;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
- 
-  .botao-cadastrar:hover {
-    background-color: #16a34a;
-  }
- 
-  .tabela-container {
-    overflow-x: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
- 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-  }
- 
-  thead {
-    background-color: #f3f4f6;
-  }
- 
-  th, td {
-    text-align: left;
-    padding: 1rem;
-    border-top: 1px solid #e5e7eb;
-  }
- 
-  .aprovado {
-    background-color: #d1fae5;
-    color: #047857;
-    padding: 0.3rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 0.9rem;
-  }
- 
-  .botao-acao {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #6b7280;
-    cursor: pointer;
-  }
- 
-  .botao-acao:hover {
-    color: #374151;
-  }
- 
-  .paginacao {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-  }
- 
-  .itens-por-pagina select {
-    border: 1px solid #ccc;
-    padding: 0.3rem;
-    border-radius: 5
-  }
-  .input-pesquisa {
-    position: relative;
-    width: 500px;
-  }
- 
-  .input-pesquisa input {
-    width: 100%;
-    padding: 0.8rem 1rem 0.8rem 2.5rem;
-    border: none;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    outline: none;
-    font-size: 1rem;
-  }
- 
-  .input-pesquisa .icone-lupa {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-  }
-  
-  .icone-cadastro {
-    width: 20px;
-    height: 20px;
-  }
+  padding: 2rem 4rem;
+  font-family: Arial, sans-serif;
+  position: relative;
+  top: 50px;
+  color: #333;
+}
 
-  .menu-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .menu-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .menu {
-    position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  }
-  
-  .menu button {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .menu button:hover {
-    background-color: #f0f0f0;
-  }
+/* Título */
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
 
+/* Barra superior: pesquisa + botão */
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
 
+/* Campo de pesquisa */
+.input-pesquisa {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
 
-  /* Toasts */
-  .notification {
-    width: auto; /* ou 100% se quiser que ele vá de ponta a ponta */
-    max-width: 600px; /* limite para não ficar gigante */
-    padding: 11px 16px;
-    background: #434343;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.20);
-    overflow: hidden;
-    border-radius: 8px;
-    outline: 1px #333333 solid;
-    outline-offset: -1px;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-    display: flex;
-    position: fixed; /* FIXAR */
-    bottom: 20px; /* distância do fundo */
-    left: 50%; /* centralizar */
-    transform: translateX(-50%); /* corrigir o centro */
-    z-index: 9999; /* garantir que fique na frente */
-  }
-  
-  .notification-text {
-    flex: 1 1 0;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    color: #F5F5F5;
-    font-size: 14px;
-    font-family: Inter, sans-serif;
-    font-weight: 400;
-    line-height: 24px;
-    word-wrap: break-word;
-    text-align: center;
-  }
+.input-pesquisa input {
+  width: 100%;
+  height: 40px;
+  padding: 0 16px 0 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  font-size: 14px;
+  outline: none;
+}
 
-  .aprovado{
-    width: 6px;
-    height: 6px;
-    
-  }
-  
+.input-pesquisa .icone-lupa {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Botão Cadastrar */
+.botao-cadastrar {
+  background-color: #22c55e;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-cadastrar:hover {
+  background-color: #16a34a;
+}
+
+.botao-cadastrar .icone-cadastro {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tabela */
+.tabela-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+thead tr {
+  background-color: #f3f4f6;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Situação */
+.aprovado {
+  background-color: #d1fae5;
+  color: #047857;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+}
+
+/* Menu de ações */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.botao-acao {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.botao-acao:hover {
+  color: #374151;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.menu button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.menu button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Paginação */
+.paginacao {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.itens-por-pagina {
+  font-size: 14px;
+  color: #555;
+}
+
+.itens-por-pagina select {
+  border: 1px solid #ccc;
+  padding: 0.3rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.controles-paginacao button {
+  margin: 0 4px;
+  padding: 6px 12px;
+  border: none;
+  background: none;
+  color: #555;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.controles-paginacao button:hover:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+.controles-paginacao button:disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.controles-paginacao .pagina-ativa {
+  background-color: #21c25e;
+  color: white;
+}
+
+/* Toast Notification */
+.notification {
+  max-width: 600px;
+  padding: 11px 16px;
+  background: #434343;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notification-text {
+  display: flex;
+  color: #F5F5F5;
+  font-size: 14px;
+  justify-content: center;
+}
+
+.notification img {
+  width: 20px;
+  height: 20px;
+}
