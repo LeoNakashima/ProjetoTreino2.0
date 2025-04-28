@@ -45,15 +45,17 @@
             <td></td>
             <td><span class="aprovado">Aprovado</span></td>
             <td>
-              <div class="menu-container">
-                <button class="botao-acao" (click)="abrirMenu()">⋮</button>
-
-                <div class="menu" *ngif="menuAberto">
-                  <button (click)="remover()">Remover</button>
-                  <button (click)="editar()">Editar</button>
+              
+                <div class="menu-container">
+                  <button class="botao-acao" (click)="abrirMenu()">⋮</button>
+              
+                  <div class="menu" *ngIf="menuAberto">
+                    <button (click)="remover()">Remover</button>
+                    <button (click)="editar()">Editar</button>
+                  </div>
                 </div>
-
-              </div>
+              
+              
               
             </td>
           </tr>
@@ -82,19 +84,19 @@
         <button>&gt;</button>
       </div>
 
-      <div  class="notification" data-icon="true" data-two-lines="True" data-type="cadastrado">
+      <!-- <div  class="notification" data-icon="true" data-two-lines="True" data-type="cadastrado">
         <div class="notification-text">
           <img class="aprovado" src="/public/assets/aprovado.png" alt="">
           Aluno cadastrado!
         </div>
       </div>
-    </div>
+    </div> -->
     
 
-    <div  class="notification" data-icon="true" data-two-lines="True" data-type="Ncadastrado">
+    <!-- <div  class="notification" data-icon="true" data-two-lines="True" data-type="Ncadastrado">
       <div class="notification-text">
         <img class="aprovado" src="/public/assets/reprovado.png" alt="">
-        Aluno cadastrado!
+        Ops,Não!
       </div>
-    </div>
+    </div> -->
   </div>
