@@ -46,9 +46,9 @@
             <td><span class="aprovado">Aprovado</span></td>
             <td>
               <div class="menu-container">
-                <button class="botao-acao" (click)="abrirMenu()">⋮</button>
+                <button class="botao-acao" (click)="abrirMenu()" >⋮</button>
 
-                <div class="menu" *ngif="menuAberto">
+                <div class="menu" *ngIf="menuAberto">
                   <button (click)="remover()">Remover</button>
                   <button (click)="editar()">Editar</button>
                 </div>
