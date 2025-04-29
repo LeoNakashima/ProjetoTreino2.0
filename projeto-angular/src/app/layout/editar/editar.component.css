@@ -1,0 +1,75 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 24px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  label {
+    font-size: 0.875rem;
+    color: #374151; /* gray-700 */
+    margin-bottom: 4px;
+  }
+  
+  input {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db; /* gray-300 */
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #3b82f6; /* blue-500 */
+    box-shadow: 0 0 0 1px #3b82f6;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  
+  button {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+  }
+  
+  button[type="button"] {
+    background-color: #e5e7eb; /* gray-200 */
+    color: #374151; /* gray-700 */
+  }
+  
+  button[type="button"]:hover {
+    background-color: #d1d5db; /* gray-300 */
+  }
+  
+  button[type="submit"] {
+    background-color: #10b981; /* green-500 */
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #059669; /* green-600 */
+  }
+  

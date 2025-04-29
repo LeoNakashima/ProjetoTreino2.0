@@ -3,10 +3,11 @@ import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { EditarComponent } from '../../layout/editar/editar.component';
 
 @Component({
   selector: 'app-notas',
-  imports: [HeaderComponent, SidebarComponent, NgIf],
+  imports: [HeaderComponent, SidebarComponent, EditarComponent, NgIf],
   templateUrl: './notas.component.html',
   styleUrl: './notas.component.css'
 })

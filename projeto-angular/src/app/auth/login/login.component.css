@@ -127,12 +127,7 @@ input {
   gap: 24px;
 }
 
-/* Cabeçalho do modal */
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .icon {
   width: 80px;
