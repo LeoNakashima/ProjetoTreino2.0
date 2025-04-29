@@ -3,6 +3,7 @@ import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CadastroNotasService } from '../../cadastro-notas.service';
 
 @Component({
   selector: 'app-cadastro-notas',
@@ -12,7 +13,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class CadastroNotasComponent {
 
-  constructor (private router: Router){}
+  email:string = "";
+
+
+
+  constructor (private router: Router, private cadastroNotasService: CadastroNotasService){}
 
   descartar(){
     this.router.navigate(['notas'])
@@ -20,6 +25,7 @@ export class CadastroNotasComponent {
   }
 
   proximo(){
+    this.cadastroNotasService.emailAluno = this.email
     this.router.navigate(['cadastro2-notas'])
     
   }

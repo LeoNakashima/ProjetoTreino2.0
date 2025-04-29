@@ -3,6 +3,8 @@ import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CadastroNotasService } from '../../cadastro-notas.service';
+import { ToastService } from '../../toast.service';
 
 @Component({
   selector: 'app-cadastro2-notas',
@@ -12,7 +14,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class Cadastro2NotasComponent {
 
-  constructor(private router:Router){}
+  emailTeste:string = "sla@gmail.com"
+
+  constructor(private router:Router, 
+    private cadastroNotasService: CadastroNotasService,
+    private toast:ToastService
+  ){}
 
   descartar(){
     this.router.navigate(['notas'])
@@ -20,7 +27,15 @@ export class Cadastro2NotasComponent {
   }
 
   cadastrar(){
-    this.router.navigate(['notas'])
+    const emailAluno = this.cadastroNotasService.emailAluno;
+
+    if(emailAluno == this.emailTeste){
+      this.router.navigate(['notas'])
+      this.toast.exibirToast('Aluno cadastrado', '../../assets/aprovado.png')
+    }else{
+      this.router.navigate(['notas'])
+      this.toast.exibirToast('Ops! Não deu...', '../../assets/reprovado.png')
+    }
     
     
   }

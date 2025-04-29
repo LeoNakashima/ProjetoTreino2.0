@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { EditarComponent } from '../../layout/editar/editar.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
+import { ToastService } from '../../toast.service';
 
 interface Aluno {
   id: number;
@@ -37,7 +38,7 @@ export class NotasComponent implements OnInit {
   // Controle de menu por aluno
   menuAbertoId: number | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public toast: ToastService) {}
 
   ngOnInit(): void {
     // Simulação de dados
@@ -123,10 +124,23 @@ export class NotasComponent implements OnInit {
   }
 
   remover(aluno: Aluno): void {
+    const tamanhoAntes = this.alunos.length;
+  
     this.alunos = this.alunos.filter(a => a.id !== aluno.id);
+    const tamanhoDepois = this.alunos.length;
+  
     this.atualizarPaginacao();
     this.menuAbertoId = null;
+  
+    const sucesso = tamanhoDepois < tamanhoAntes;
+  
+    if (sucesso) {
+      this.toast.exibirToast('Aluno removido!', '../../assets/aprovado.png');
+    } else {
+      this.toast.exibirToast('Ops! Não deu.', '../../assets/reprovado.png');
+    }
   }
+  
 
   editar(aluno: Aluno): void {
     this.router.navigate([`editar-nota/${aluno.id}`]);

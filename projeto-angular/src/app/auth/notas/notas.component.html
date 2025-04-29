@@ -95,6 +95,11 @@
       </button>
       <span *ngIf="ultimaPaginaVisivel < totalPaginas">...</span>
       <button (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">&gt;</button>
+      <div class="toast" *ngIf="toast.toastAtivo">
+        <img [src]="toast.toastImagem" alt="Ícone de status" />
+        <span>{{ toast.toastMensagem }}</span>  
+      </div>
     </div>
   </div>
 </div>
+

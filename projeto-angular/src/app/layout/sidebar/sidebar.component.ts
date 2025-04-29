@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HomeComponent } from '../../auth/home/home.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-
+  constructor(private router: Router) {}
+  IrHome(){
+    this.router.navigate(['home']);
+  }
 }
