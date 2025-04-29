@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { EditarComponent } from '../../layout/editar/editar.component';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { ToastService } from '../../toast.service';
@@ -141,8 +140,16 @@ export class NotasComponent implements OnInit {
     }
   }
 
-  editar(aluno: Aluno): void {
-    this.router.navigate([`editar-nota/${aluno.id}`]);
-    this.menuAbertoId = null;
+  
+  menuEditar:boolean = false
+  editar(){
+    this.menuEditar =! this.menuEditar
   }
+
+
+
+
+
 }
+
+
