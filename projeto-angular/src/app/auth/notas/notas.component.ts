@@ -1,11 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { HeaderComponent } from "../../layout/header/header.component";
-import { SidebarComponent } from "../../layout/sidebar/sidebar.component";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-notas',
-  imports: [HeaderComponent, SidebarComponent],
+  imports: [HeaderComponent, SidebarComponent, NgIf],
   templateUrl: './notas.component.html',
   styleUrl: './notas.component.css'
 })
@@ -20,8 +19,11 @@ export class NotasComponent {
   
   menuAberto = false;
 
-  abrirMenu() {
-    this.menuAberto = !this.menuAberto;
+  abrirMenu(){
+    this.menuAberto =! this.menuAberto
+  }
+  fecharMenu(){
+    this.menuAberto = false
   }
 
   remover() {

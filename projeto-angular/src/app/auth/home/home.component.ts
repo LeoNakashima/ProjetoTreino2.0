@@ -16,6 +16,6 @@ export class HomeComponent {
     this.router.navigate(['grafico']);
   }
   irNotas(){
-    this.router.navigate(['login']);
+    this.router.navigate(['notas']);  
   }
 }

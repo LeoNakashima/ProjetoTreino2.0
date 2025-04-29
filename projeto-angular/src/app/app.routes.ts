@@ -8,8 +8,8 @@ import { Cadastro2NotasComponent } from './auth/cadastro2-notas/cadastro2-notas.
 import { CadastroNotasComponent } from './auth/cadastro-notas/cadastro-notas.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'login', component: LoginComponent},
+    { path: 'home', component: HomeComponent},
+    { path: '', component: LoginComponent},
     { path: 'cadastro-login', component: CadastroComponent},
     { path: 'cadastro-notas' , component: CadastroNotasComponent},
     { path: 'cadastro2-notas' , component: Cadastro2NotasComponent},
