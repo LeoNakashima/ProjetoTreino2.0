@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { ToastService } from '../../toast.service';
+ 
 
 interface Aluno {
   id: number;
@@ -57,7 +58,7 @@ export class NotasComponent implements OnInit {
     // Calcular média e situação
     this.alunos.forEach(a => {
       a.media = Math.round((a.exatas + a.linguagens + a.ciencias) / 3);
-      a.aprovado = a.media >= 7;
+    
     });
 
     this.atualizarPaginacao();
@@ -145,8 +146,18 @@ export class NotasComponent implements OnInit {
   editar(){
     this.menuEditar =! this.menuEditar
   }
+  
+  Confirmar(){
+    
+    this.toast.exibirToast('Aluno editado!', '../../assets/aprovado.png')
+    this.router.navigate(['notas'])
+    this.menuEditar = false
 
+  }
 
+  Descartar(){
+    this.router.navigate(['notas'])
+  }
 
 
 

@@ -104,46 +104,47 @@
 
     <!-- menu de editar -->
 
-    <div class="modal" *ngIf="menuEditar">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Editar</h2>
-          <span class="close-button" (click)="editar()">&times;</span>
-        </div>
-        <form class="modal-form">
-          <label>Nome</label>
-          <input type="text" value="Willamy Andreotti">
     
-          <label>E-mail</label>
-          <input type="email" value="willamy.andreotti@picpay.com">
     
-          <label>Ano</label>
-          <input type="number" value="3">
     
-          <label>Série</label>
-          <input type="text" value="E">
     
-          <label>Exatas</label>
-          <input type="number" value="8">
-    
-          <label>Linguagens</label>
-          <input type="number" value="6">
-    
-          <label>Ciências</label>
-          <input type="number" value="3">
-    
-          <div class="modal-buttons">
-            <button type="button" class="cancel-button">Descartar</button>
-            <button type="submit" class="confirm-button" >Confirmar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    
-
-
-
-    </div>
   </div>
 </div>
+</div>
 
+
+<div class="modal" *ngIf="menuEditar">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Editar</h2>
+      <span class="close-button" (click)="editar()">&times;</span>
+    </div>
+    <form class="modal-form">
+      <label>Nome</label>
+      <input type="text" value="Willamy Andreotti">
+
+      <label>E-mail</label>
+      <input type="email" value="willamy.andreotti@picpay.com">
+
+      <label>Ano</label>
+      <input type="number" value="3">
+
+      <label>Série</label>
+      <input type="text" value="E">
+
+      <label>Exatas</label>
+      <input type="number" value="8">
+
+      <label>Linguagens</label>
+      <input type="number" value="6">
+
+      <label>Ciências</label>
+      <input type="number" value="3">
+
+      <div class="modal-buttons">
+        <button type="button" class="cancel-button" (click)="Descartar()" >Descartar</button>
+        <button type="submit" class="confirm-button" (click)="Confirmar()" >Confirmar</button>
+      </div>
+    </form>
+  </div>
+</div>
