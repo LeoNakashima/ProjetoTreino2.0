@@ -140,7 +140,6 @@ export class NotasComponent implements OnInit {
       this.toast.exibirToast('Ops! Não deu.', '../../assets/reprovado.png');
     }
   }
-  
 
   editar(aluno: Aluno): void {
     this.router.navigate([`editar-nota/${aluno.id}`]);
