@@ -1,101 +1,100 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<app-editar></app-editar>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a routerLink="/">Início</a> &gt;
+  <span>Laboratório de Germinares</span>
+</div>
 
 <div class="container">
-    <h1 class="titulo">Gerenciamento de notas</h1>
- 
-    <div class="barra-superior">
-        <div class="input-pesquisa">
-            <img src="../../assets/lupa.png" alt="Buscar" class="icone-lupa" />
-            <input type="text" placeholder="Buscar por nome" id="busca" />
-          </div>
-         
- 
-      <button class="botao-cadastrar" (click)="fazerCadastro()">
-        <img src="../../assets/iconCadastro.png" alt="" class="icone-cadastro"> Cadastrar Aluno
-      </button>
+  <h1 class="titulo">Gerenciamento de notas</h1>
+
+  <div class="barra-superior">
+    <div class="input-pesquisa">
+      <img src="../../assets/lupa.png" alt="Buscar" class="icone-lupa" />
+      <input
+        type="text"
+        placeholder="Buscar por nome"
+        [(ngModel)]="filtroNome"
+        (input)="filtrarAlunos()"
+      />
     </div>
- 
-    <div class="tabela-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Ano</th>
-            <th>Série</th>
-            <th>Exatas</th>
-            <th>Linguagens</th>
-            <th>Ciências</th>
-            <th>Média</th>
-            <th>Situação</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><span class="aprovado">Aprovado</span></td>
-            <td>
-              <div class="menu-container">
-                <button class="botao-acao" (click)="abrirMenu()" >⋮</button>
-
-                <div class="menu" *ngIf="menuAberto">
-                  <button (click)="remover()">Remover</button>
-                  <button (click)="editar()">Editar</button>
-                </div>
-              
-              
-              
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
- 
-    <div class="paginacao">
-      <div class="itens-por-pagina">
-        Item por página:
-        <select>
-          <option>5</option>
-          <option>10</option>
-          <option>15</option>
-        </select>
-      </div>
- 
-      <div class="controles-paginacao">
-        <button disabled>&lt;</button>
-        <button class="pagina-ativa">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <span>...</span>
-        <button>&gt;</button>
-      </div>
-
-      <!-- <div  class="notification" data-icon="true" data-two-lines="True" data-type="cadastrado">
-        <div class="notification-text">
-          <img class="aprovado" src="" alt="">
-          Aluno cadastrado!
-        </div>
-      </div>
-    </div> -->
-    
-
-    <!-- <div  class="notification" data-icon="true" data-two-lines="True" data-type="Ncadastrado">
-      <div class="notification-text">
-        <img src="../../assets/aprovado.png" alt="">
-        Aluno cadastrado!
-      </div>
-    </div> -->
+    <button class="btn-pesquisar" (click)="filtrarAlunos()">Pesquisar</button>
+    <button class="botao-cadastrar" (click)="fazerCadastro()">
+      <img src="../../assets/iconCadastro.png" alt="" class="icone-cadastro" />
+      Cadastrar Aluno
+    </button>
   </div>
+
+  <div class="tabela-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Ano</th>
+          <th>Série</th>
+          <th>Exatas</th>
+          <th>Linguagens</th>
+          <th>Ciências</th>
+          <th>Média</th>
+          <th>Situação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of paginaAtualLista">
+          <td>{{ aluno.nome }}</td>
+          <td>{{ aluno.email }}</td>
+          <td>{{ aluno.ano }}</td>
+          <td>{{ aluno.serie }}</td>
+          <td>{{ aluno.exatas }}</td>
+          <td>{{ aluno.linguagens }}</td>
+          <td>{{ aluno.ciencias }}</td>
+          <td>{{ aluno.media }}</td>
+          <td>
+            <span class="status aprovado" *ngIf="aluno.aprovado">
+              <img src="../../assets/check.svg" alt="" />
+              Aprovado
+            </span>
+            <span class="status reprovado" *ngIf="!aluno.aprovado">
+              <img src="../../assets/close.svg" alt="" />
+              Reprovado
+            </span>
+          </td>
+          <td>
+            <div class="menu-container">
+              <button class="botao-acao" (click)="abrirMenu(aluno)">⋮</button>
+              <div class="menu" *ngIf="menuAbertoId === aluno.id">
+                <button (click)="remover(aluno)">Remover</button>
+                <button (click)="editar(aluno)">Editar</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="paginacao">
+    <div class="itens-por-pagina">
+      Item por página:
+      <select [(ngModel)]="itensPorPagina" (change)="atualizarPaginacao()">
+        <option *ngFor="let n of [5, 10, 15]" [value]="n">{{ n }}</option>
+      </select>
+    </div>
+    <div class="controles-paginacao">
+      <button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">&lt;</button>
+      <button
+        *ngFor="let p of paginasVisiveis"
+        (click)="irParaPagina(p)"
+        [class.pagina-ativa]="paginaAtual === p"
+      >
+        {{ p }}
+      </button>
+      <span *ngIf="ultimaPaginaVisivel < totalPaginas">...</span>
+      <button (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">&gt;</button>
+    </div>
+  </div>
+</div>

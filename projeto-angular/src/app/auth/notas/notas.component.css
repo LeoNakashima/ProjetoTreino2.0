@@ -1,9 +1,18 @@
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 14px;
+  color: #666;
+  margin: 1rem 4rem 0.5rem;
+}
+.breadcrumb a {
+  color: #047857;
+  text-decoration: none;
+}
+
 /* Container geral */
 .container {
-  padding: 2rem 4rem;
+  padding: 0 4rem 4rem;
   font-family: Arial, sans-serif;
-  position: relative;
-  top: 50px;
   color: #333;
 }
 
@@ -11,36 +20,33 @@
 .titulo {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin: 0.5rem 0 1.5rem;
 }
 
-/* Barra superior: pesquisa + botão */
+/* Barra superior */
 .barra-superior {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   margin-bottom: 1.5rem;
-  width: 100%;
 }
 
-/* Campo de pesquisa */
 .input-pesquisa {
   position: relative;
   flex: 1;
   max-width: 400px;
 }
-
 .input-pesquisa input {
   width: 100%;
   height: 40px;
   padding: 0 16px 0 40px;
   border-radius: 20px;
   border: 1px solid #ddd;
-  background-color: #f5f5f5;
+  background: #f5f5f5;
   font-size: 14px;
   outline: none;
 }
-
 .input-pesquisa .icone-lupa {
   position: absolute;
   left: 12px;
@@ -48,29 +54,37 @@
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  pointer-events: none;
   opacity: 0.6;
 }
 
-/* Botão Cadastrar */
-.botao-cadastrar {
-  background-color: #22c55e;
-  color: white;
+.btn-pesquisar {
+  padding-left: 400px;
+  background: none;
+  border: none;
+  color: #047857;
+  font-size: 14px;
   font-weight: bold;
+  cursor: pointer;
+}
+.btn-pesquisar:hover {
+  text-decoration: underline;
+}
+
+.botao-cadastrar {
+  background-color: #047857;
+  color: white;
   padding: 0.5rem 1.5rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
 .botao-cadastrar:hover {
-  background-color: #16a34a;
+  background-color: #065f46;
 }
-
 .botao-cadastrar .icone-cadastro {
   width: 20px;
   height: 20px;
@@ -79,49 +93,51 @@
 /* Tabela */
 .tabela-container {
   overflow-x: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
 }
-
-thead tr {
-  background-color: #f3f4f6;
+thead {
+  background: #f3f4f6;
 }
-
 th,
 td {
-  position: fixed;
-  text-align: left;
   padding: 0.75rem 1rem;
-  border-top: 1px solid #e5e7eb;
+  text-align: left;
   font-size: 14px;
   color: #4a4a4a;
+  border-bottom: 1px solid #e5e7eb;
 }
-
 tbody tr:hover {
-  background-color: #f9fafb;
+  background: #f9fafb;
 }
 
 /* Situação */
-.aprovado {
-  background-color: #d1fae5;
-  color: #047857;
-  padding: 0.3rem 0.8rem;
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 9999px;
   font-size: 0.9rem;
+}
+.status.aprovado {
+  background: #d1fae5;
+  color: #047857;
+}
+.status.reprovado {
+  background: #fee2e2;
+  color: #991b1b;
 }
 
 /* Menu de ações */
 .menu-container {
   position: relative;
-  display: inline-block;
 }
-
 .botao-acao {
   background: none;
   border: none;
@@ -129,23 +145,16 @@ tbody tr:hover {
   color: #6b7280;
   cursor: pointer;
 }
-
-.botao-acao:hover {
-  color: #374151;
-}
-
 .menu {
   position: absolute;
-  top: 100%;
+  top: 120%;
   right: 0;
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-top: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
-
 .menu button {
   display: block;
   width: 100%;
@@ -155,81 +164,61 @@ tbody tr:hover {
   text-align: left;
   cursor: pointer;
   font-size: 14px;
-  color: #333;
 }
-
 .menu button:hover {
-  background-color: #f0f0f0;
+  background: #f0f0f0;
 }
 
 /* Paginação */
 .paginacao {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  gap: 1rem;
 }
-
 .itens-por-pagina {
   font-size: 14px;
   color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
 .itens-por-pagina select {
+  padding: 0.3rem 0.6rem;
   border: 1px solid #ccc;
-  padding: 0.3rem;
   border-radius: 4px;
-  margin-left: 0.5rem;
+  background: #f9f9f9;
+  cursor: pointer;
 }
-
+.controles-paginacao {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 .controles-paginacao button {
-  margin: 0 4px;
   padding: 6px 12px;
   border: none;
   background: none;
+  font-size: 14px;
   color: #555;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s;
+  min-width: 32px;
 }
-
 .controles-paginacao button:hover:not(:disabled) {
-  background-color: #f3f4f6;
+  background: #f3f4f6;
 }
-
 .controles-paginacao button:disabled {
   color: #ccc;
   cursor: default;
 }
-
 .controles-paginacao .pagina-ativa {
-  background-color: #21c25e;
+  background: #21c25e;
   color: white;
-}
-
-/* Toast Notification */
-.notification {
-  max-width: 600px;
-  padding: 11px 16px;
-  background: #434343;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.notification-text {
-  display: flex;
-  color: #F5F5F5;
-  font-size: 14px;
-  justify-content: center;
-}
-
-.notification img {
-  width: 20px;
-  height: 20px;
+  font-weight: bold;
 }
