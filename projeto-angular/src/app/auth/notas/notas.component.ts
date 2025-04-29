@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from '../../layout/header/header.component';
-import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { EditarComponent } from '../../layout/editar/editar.component';
@@ -14,12 +12,12 @@ import { EditarComponent } from '../../layout/editar/editar.component';
 export class NotasComponent {
   constructor(private router: Router) {}
 
-  validaCadastro = true;
 
   fazerCadastro() {
     this.router.navigate(['cadastro-notas']);
   }
 
+  
   menuAberto = false;
 
   abrirMenu(){
@@ -29,17 +27,15 @@ export class NotasComponent {
     this.menuAberto = false
   }
 
-  remover(){
-    
-
+  remover() {
+    this.menuAberto = false;
+    // lógica de remoção
   }
 
-  editar(){
-
+  editar() {
+    this.menuAberto = false;
+    // lógica de edição
   }
-
 
   
-
-
 }

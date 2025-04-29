@@ -22,6 +22,7 @@ export class Cadastro2NotasComponent {
   cadastrar(){
     this.router.navigate(['notas'])
     
+    
   }
 
 
