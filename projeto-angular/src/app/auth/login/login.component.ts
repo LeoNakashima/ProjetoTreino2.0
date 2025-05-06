@@ -1,9 +1,11 @@
-  import { Component } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
   import { FormsModule } from '@angular/forms';
   import { Router } from '@angular/router';
   import { HeaderComponent } from '../../layout/header/header.component';
   import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
   import { NgIf } from '@angular/common';
+  import { ActivatedRoute } from '@angular/router';
+
 
 
   @Component({
@@ -13,13 +15,19 @@
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
   })
-  export class LoginComponent {
+  export class LoginComponent implements OnInit{
     email: string = '';
     password: string = '';
     loginRejeitado: boolean = false;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private route:ActivatedRoute) {}
 
+    ngOnInit(): void {
+      this.route.paramMap.subscribe(params => {
+      this.loginRejeitado = params.get('error') === "true";
+    }
+  )
+    }
     fazerLogin(event?: Event) {
       if (event) {
         event.preventDefault(); // Evita o reload do form

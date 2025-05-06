@@ -58,7 +58,8 @@ export class NotasComponent implements OnInit {
     // Calcular média e situação
     this.alunos.forEach(a => {
       a.media = Math.round((a.exatas + a.linguagens + a.ciencias) / 3);
-    
+      a.aprovado = a.media >= 7;
+      
     });
 
     this.atualizarPaginacao();

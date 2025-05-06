@@ -10,6 +10,7 @@ import { CadastroNotasComponent } from './auth/cadastro-notas/cadastro-notas.com
 export const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: '', component: LoginComponent},
+    { path: 'login', component: LoginComponent},
     { path: 'cadastro-login', component: CadastroComponent},
     { path: 'cadastro-notas' , component: CadastroNotasComponent},
     { path: 'cadastro2-notas' , component: Cadastro2NotasComponent},

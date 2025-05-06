@@ -1,19 +1,36 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../layout/header/header.component';
-import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../../layout/header/header.component';
+import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [FormsModule,HeaderComponent, SidebarComponent],
+  standalone: true,
+  imports: [FormsModule, HeaderComponent, SidebarComponent],
   templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
+  email: string = "";
+  usuariosCadastrados = [
+    { email: 'teste@exemplo.com' },
+    { email: 'outro@exemplo.com' }
+  ];
+
   constructor(private router: Router) {}
+
   fazerCadastro() {
-    this.router.navigate(['']);
-    alert("Cadastrado!")
+    const usuarioEncontrado = this.usuariosCadastrados.find(user =>
+      user.email === this.email
+    );
+
+    if (usuarioEncontrado) {
+      this.router.navigate(['login',{error:true}]);
+
+    } else {
+      alert("Cadastro realizado com sucesso!");
+      this.router.navigate(['']);
+    }
   }
 }
