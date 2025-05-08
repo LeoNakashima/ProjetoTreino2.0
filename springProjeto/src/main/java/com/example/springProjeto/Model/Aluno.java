@@ -15,6 +15,7 @@ public class Aluno {
 
     private String nome;
     private String sobrenome;
+    private String email;
     private String Genero;
     private Date data_nascimento;
     private String escolaridade_pais;
@@ -32,9 +33,10 @@ public class Aluno {
 
     public Aluno(){}
 
-    public Aluno(String nome, String sobrenome, String genero, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
+    public Aluno(String nome, String sobrenome, String email, String genero, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.email = email ;
         this.Genero = genero;
         this.data_nascimento = data_nascimento;
         this.escolaridade_pais = escolaridade_pais;
@@ -58,6 +60,8 @@ public class Aluno {
     public String getSobrenome() {
         return this.sobrenome;
     }
+
+    public String getEmail() { return this.email; }
 
     public String getGenero() {
         return this.Genero;
@@ -124,6 +128,8 @@ public class Aluno {
         this.sobrenome = sobrenome;
     }
 
+    public void setEmail(String email) { this.email = email; }
+
     public void setGenero(String genero) {
         Genero = genero;
     }
@@ -187,6 +193,7 @@ public class Aluno {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
+                ", email='" + email + '\'' +
                 ", Genero='" + Genero + '\'' +
                 ", data_nascimento=" + data_nascimento +
                 ", escolaridade_pais='" + escolaridade_pais + '\'' +
