@@ -16,6 +16,8 @@ public class Aluno {
     private String nome;
     private String sobrenome;
     private String Genero;
+    private String email;
+    private String senha;
     private Date data_nascimento;
     private String escolaridade_pais;
     private String tipo_alimentacao;
@@ -32,10 +34,12 @@ public class Aluno {
 
     public Aluno(){}
 
-    public Aluno(String nome, String sobrenome, String genero, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
+    public Aluno(String nome, String sobrenome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.Genero = genero;
+        this.email= email;
+        this.senha = senha;
         this.data_nascimento = data_nascimento;
         this.escolaridade_pais = escolaridade_pais;
         this.tipo_alimentacao = tipo_alimentacao;
@@ -180,6 +184,21 @@ public class Aluno {
         this.status_final = status_final;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     @Override
     public String toString() {
@@ -188,6 +207,8 @@ public class Aluno {
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", Genero='" + Genero + '\'' +
+                ", Email=" + email + '\''+
+                ", Senha=" + senha + '\''+
                 ", data_nascimento=" + data_nascimento +
                 ", escolaridade_pais='" + escolaridade_pais + '\'' +
                 ", tipo_alimentacao='" + tipo_alimentacao + '\'' +

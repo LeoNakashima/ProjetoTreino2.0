@@ -5,6 +5,7 @@ import com.example.springProjeto.Repository.AlunoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AlunoService {
@@ -17,4 +18,9 @@ public class AlunoService {
     public List<Aluno> listarAlunos() {
         return alunoRepository.findAll();
     }
+
+    public boolean validarLogin(String email, String senha) {
+        return alunoRepository.findByEmailAndSenha(email, senha).isPresent();
+    }
+
 }

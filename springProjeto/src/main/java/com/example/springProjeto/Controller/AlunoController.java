@@ -2,12 +2,12 @@ package com.example.springProjeto.Controller;
 
 import com.example.springProjeto.Model.Aluno;
 import com.example.springProjeto.Service.AlunoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/alunos")
@@ -22,4 +22,19 @@ public class AlunoController {
     public ResponseEntity<List<Aluno>> selecionarAluno() {
         return ResponseEntity.ok(service.listarAlunos());
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<Void> login(@RequestBody Aluno aluno) {
+        boolean valido = service.validarLogin(aluno.getEmail(),aluno.getSenha());
+
+        if(valido){
+            return ResponseEntity.ok().build();
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+
+    }
+
+
 }
