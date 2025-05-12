@@ -1,21 +1,19 @@
 package com.example.springProjeto.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "estudantes")
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String nome;
     private String sobrenome;
-    private String Genero;
+    private String genero;
     private String email;
     private String senha;
     private Date data_nascimento;
@@ -37,7 +35,7 @@ public class Aluno {
     public Aluno(String nome, String sobrenome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.Genero = genero;
+        this.genero = genero;
         this.email= email;
         this.senha = senha;
         this.data_nascimento = data_nascimento;
@@ -55,6 +53,10 @@ public class Aluno {
         this.status_final = status_final;
     }
 
+    public long getId() {
+        return this.id;
+    }
+
     public String getNome() {
         return this.nome;
     }
@@ -64,7 +66,7 @@ public class Aluno {
     }
 
     public String getGenero() {
-        return this.Genero;
+        return this.genero;
     }
 
     public Date getData_nascimento() {
@@ -129,7 +131,7 @@ public class Aluno {
     }
 
     public void setGenero(String genero) {
-        Genero = genero;
+        genero = genero;
     }
 
     public void setData_nascimento(Date data_nascimento) {
@@ -206,7 +208,7 @@ public class Aluno {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
-                ", Genero='" + Genero + '\'' +
+                ", Genero='" + genero + '\'' +
                 ", Email=" + email + '\''+
                 ", Senha=" + senha + '\''+
                 ", data_nascimento=" + data_nascimento +

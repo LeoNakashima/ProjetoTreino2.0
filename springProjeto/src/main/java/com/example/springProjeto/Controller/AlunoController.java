@@ -19,22 +19,23 @@ public class AlunoController {
 
 
     @GetMapping("/selecionar")
-    public ResponseEntity<List<Aluno>> selecionarAluno() {
-        return ResponseEntity.ok(service.listarAlunos());
+    public List<Aluno> selecionarAluno() {
+       return service.listarAlunos();
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody Aluno aluno) {
-        boolean valido = service.validarLogin(aluno.getEmail(),aluno.getSenha());
 
-        if(valido){
-            return ResponseEntity.ok().build();
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<Void> login(@RequestBody Aluno aluno) {
+//        boolean valido = service.validarLogin(aluno.getEmail(),aluno.getSenha());
+//
+//        if(valido){
+//            return ResponseEntity.ok().build();
+//        }
+//        else{
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+//        }
+//
+//    }
 
 
 }

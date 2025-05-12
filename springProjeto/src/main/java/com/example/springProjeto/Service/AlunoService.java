@@ -19,8 +19,8 @@ public class AlunoService {
         return alunoRepository.findAll();
     }
 
-    public boolean validarLogin(String email, String senha) {
-        return alunoRepository.findByEmailAndSenha(email, senha).isPresent();
-    }
+//    public boolean validarLogin(String email, String senha) {
+//        return alunoRepository.findByEmailAndSenha(email, senha).isPresent();
+//    }
 
 }
