@@ -19,9 +19,9 @@ public class Aluno {
     private Date data_nascimento;
     private String escolaridade_pais;
     private String tipo_alimentacao;
-    private double notas_exatas;
-    private double notas_linguagem;
-    private double notas_ciencias;
+    private double nota_exatas;
+    private double nota_linguagens;
+    private double nota_ciencias;
     private double media_geral;
     private int rank_geral;
     private String desempenho;
@@ -32,7 +32,7 @@ public class Aluno {
 
     public Aluno(){}
 
-    public Aluno(String nome, String sobrenome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagem, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
+    public Aluno(String nome, String sobrenome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagens, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.genero = genero;
@@ -41,9 +41,9 @@ public class Aluno {
         this.data_nascimento = data_nascimento;
         this.escolaridade_pais = escolaridade_pais;
         this.tipo_alimentacao = tipo_alimentacao;
-        this.notas_exatas = notas_exatas;
-        this.notas_linguagem = notas_linguagem;
-        this.notas_ciencias = notas_ciencias;
+        this.nota_exatas = notas_exatas;
+        this.nota_linguagens = notas_linguagens;
+        this.nota_ciencias = notas_ciencias;
         this.media_geral = media_geral;
         this.rank_geral = rank_geral;
         this.desempenho = desempenho;
@@ -81,16 +81,16 @@ public class Aluno {
         return this.tipo_alimentacao;
     }
 
-    public double getNotas_exatas() {
-        return this.notas_exatas;
+    public double getNota_exatas() {
+        return this.nota_exatas;
     }
 
-    public double getNotas_linguagem() {
-        return this.notas_linguagem;
+    public double getNota_linguagem() {
+        return this.nota_linguagens;
     }
 
-    public double getNotas_ciencias() {
-        return this.notas_ciencias;
+    public double getNota_ciencias() {
+        return this.nota_ciencias;
     }
 
     public double getMedia_geral() {
@@ -121,7 +121,6 @@ public class Aluno {
         return this.status_final;
     }
 
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -146,16 +145,16 @@ public class Aluno {
         this.tipo_alimentacao = tipo_alimentacao;
     }
 
-    public void setNotas_exatas(double notas_exatas) {
-        this.notas_exatas = notas_exatas;
+    public void setNota_exatas(double notas_exatas) {
+        this.nota_exatas = notas_exatas;
     }
 
-    public void setNotas_linguagem(double notas_linguagem) {
-        this.notas_linguagem = notas_linguagem;
+    public void setNota_linguagens(double notas_linguagens) {
+        this.nota_linguagens = notas_linguagens;
     }
 
-    public void setNotas_ciencias(double notas_ciencias) {
-        this.notas_ciencias = notas_ciencias;
+    public void setNota_ciencias(double notas_ciencias) {
+        this.nota_ciencias = notas_ciencias;
     }
 
     public void setMedia_geral(double media_geral) {
@@ -214,9 +213,9 @@ public class Aluno {
                 ", data_nascimento=" + data_nascimento +
                 ", escolaridade_pais='" + escolaridade_pais + '\'' +
                 ", tipo_alimentacao='" + tipo_alimentacao + '\'' +
-                ", notas_exatas=" + notas_exatas +
-                ", notas_linguagem=" + notas_linguagem +
-                ", notas_ciencias=" + notas_ciencias +
+                ", notas_exatas=" + nota_exatas +
+                ", notas_linguagens=" + nota_linguagens +
+                ", notas_ciencias=" + nota_ciencias +
                 ", media_geral=" + media_geral +
                 ", rank_geral=" + rank_geral +
                 ", desempenho='" + desempenho + '\'' +

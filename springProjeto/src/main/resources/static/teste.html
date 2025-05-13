@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Alunos</h1>
+
+<table id="aluno-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Gênero</th>
+        <th>Email</th>
+        <th>Data Nasc.</th>
+        <th>Nota Exatas</th>
+        <th>Nota Linguagens</th>
+        <th>Nota Ciências</th>
+        <th>Média Geral</th>
+        <th>Rank Geral</th>
+        <th>Desempenho</th>
+        <th>Status Final</th>
+    </tr>
+    </thead>
+    <tbody id="aluno-body">
+    <!-- Alunos vão aparecer aqui -->
+    </tbody>
+</table>
+
+<script>
+    fetch('http://localhost:8080/api/alunos/selecionar')
+        .then(response => response.json())
+        .then(alunos => {
+            const tbody = document.getElementById('aluno-body');
+            alunos.forEach(aluno => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                        <td>${aluno.id}</td>
+                        <td>${aluno.nome}</td>
+                        <td>${aluno.sobrenome}</td>
+                        <td>${aluno.genero}</td>
+                        <td>${aluno.email}</td>
+                        <td>${new Date(aluno.data_nascimento).toLocaleDateString()}</td>
+                        <td>${aluno.nota_exatas}</td>
+                        <td>${aluno.nota_linguagem}</td>
+                        <td>${aluno.nota_ciencias}</td>
+                        <td>${aluno.media_geral}</td>
+                        <td>${aluno.rank_geral}</td>
+                        <td>${aluno.desempenho}</td>
+                        <td>${aluno.status_final}</td>
+                    `;
+
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao buscar alunos:', error);
+            alert('Erro ao carregar dados dos alunos.');
+        });
+</script>
+
+</body>
+</html>
