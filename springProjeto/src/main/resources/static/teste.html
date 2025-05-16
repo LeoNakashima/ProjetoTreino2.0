@@ -50,7 +50,7 @@
 </table>
 
 <script>
-    fetch('http://localhost:8080/api/alunos/selecionar')
+    fetch('http://localhost:8080/alunos/selecionar')
         .then(response => response.json())
         .then(alunos => {
             const tbody = document.getElementById('aluno-body');

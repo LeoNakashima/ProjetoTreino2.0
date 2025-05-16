@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
+    Optional<Aluno> findAlunoByEmailAndSenha(String email, String senha);
 }
 
 
