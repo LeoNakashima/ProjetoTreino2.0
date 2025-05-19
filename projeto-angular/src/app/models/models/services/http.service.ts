@@ -42,7 +42,7 @@ export class HttpService {
     } else {
       // Erro do lado do servidor
       console.error(
-        `Código do erro: ${error.status}, ` +
+        `Código do erro: ${error.status},` +
         `mensagem: ${error.message}`);
     }
     return throwError(() => new Error('Ocorreu um erro. Tente novamente mais tarde.'));

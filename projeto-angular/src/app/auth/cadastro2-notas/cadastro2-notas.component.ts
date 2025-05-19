@@ -27,15 +27,8 @@ export class Cadastro2NotasComponent {
   }
 
   cadastrar(){
-    const emailAluno = this.cadastroNotasService.emailAluno;
-
-    if(emailAluno == this.emailTeste){
-      this.router.navigate(['notas'])
-      this.toast.exibirToast('Aluno cadastrado', '../../assets/aprovado.png')
-    }else{
-      this.router.navigate(['notas'])
-      this.toast.exibirToast('Ops! Não deu...', '../../assets/reprovado.png')
-    }
+    
+   
     
     
   }

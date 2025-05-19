@@ -11,12 +11,12 @@
 
     <form>
       <input type="email" placeholder="E-mail" name="email" [(ngModel)]="email" required />
-      <input type="password" placeholder="Senha" name="password" required />
-      <input type="text" placeholder="Nome" name="nome" required />
-      <input type="text" placeholder="Gênero" name="genero" required />
+      <input type="password" placeholder="Senha" name="senha" [(ngModel)]="senha" required />
+      <input type="text" placeholder="Nome" name="nome" [(ngModel)]="nome" required />
+      <input type="text" placeholder="Gênero" name="genero" [(ngModel)]="genero" required />
       <input type="text" placeholder="Data de Nascimento" onfocus="this.type='date'" 
-      onblur="if (!this.value) this.type='text'" name="data_nascimento" required>
-      <input type="text" placeholder="Tipo de alimentação" name="tipo_alimentacao" required />
+      onblur="if (!this.value) this.type='text'" name="data_nascimento" [(ngModel)]="data_nascimento" required>
+      <input type="text" placeholder="Tipo de alimentação" name="tipo_alimentacao" [(ngModel)]="tipo_alimentacao" required />
 
       <div class="button-group">
         <button type="button" class="btn primary" (click)="fazerCadastro()">

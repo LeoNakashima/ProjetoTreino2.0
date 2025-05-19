@@ -12,7 +12,7 @@ public class Aluno {
     private long id;
 
     private String nome;
-    private String sobrenome;
+   // private String sobrenome;
     private String genero;
     private String email;
     private String senha;
@@ -32,9 +32,9 @@ public class Aluno {
 
     public Aluno(){}
 
-    public Aluno(String nome, String sobrenome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagens, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagens, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
+       // this.sobrenome = sobrenome;
         this.genero = genero;
         this.email= email;
         this.senha = senha;
@@ -53,6 +53,32 @@ public class Aluno {
         this.status_final = status_final;
     }
 
+
+
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao){
+        this.email= email;
+        this.senha = senha;
+        this.nome = nome;
+        this.genero = genero;
+        this.data_nascimento = data_nascimento;
+        this.tipo_alimentacao =tipo_alimentacao;
+
+    }
+
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao,String escolaridade_pais,double nota_linguagens,double nota_exatas,double nota_ciencias ){
+        this.email= email;
+        this.senha = senha;
+        this.nome = nome;
+        this.genero = genero;
+        this.data_nascimento = data_nascimento;
+        this.tipo_alimentacao =tipo_alimentacao;
+        this.escolaridade_pais = escolaridade_pais;
+        this.nota_linguagens= nota_linguagens;
+        this.nota_exatas=nota_exatas;
+        this.nota_ciencias=nota_ciencias;
+
+    }
+
     public long getId() {
         return this.id;
     }
@@ -61,9 +87,9 @@ public class Aluno {
         return this.nome;
     }
 
-    public String getSobrenome() {
-        return this.sobrenome;
-    }
+//    public String getSobrenome() {
+//        return this.sobrenome;
+//    }
 
     public String getGenero() {
         return this.genero;
@@ -125,9 +151,9 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
+//    public void setSobrenome(String sobrenome) {
+//        this.sobrenome = sobrenome;
+//    }
 
     public void setGenero(String genero) {
         genero = genero;
@@ -206,7 +232,6 @@ public class Aluno {
         return "Aluno{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
                 ", Genero='" + genero + '\'' +
                 ", Email=" + email + '\''+
                 ", Senha=" + senha + '\''+

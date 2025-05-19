@@ -1,10 +1,10 @@
 package com.example.springProjeto.DTO;
 
-public class LoginResponse {
+public class Response {
     private String mensagem;
-    private boolean sucesso;
+    private boolean sucesso ;
 
-    public LoginResponse(String mensagem, boolean sucesso) {
+    public Response(String mensagem, boolean sucesso) {
         this.mensagem = mensagem;
         this.sucesso = sucesso;
     }
