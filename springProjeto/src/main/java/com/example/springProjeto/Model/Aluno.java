@@ -16,12 +16,14 @@ public class Aluno {
     private String genero;
     private String email;
     private String senha;
+    private int ano;
+    private Character serie;
     private Date data_nascimento;
     private String escolaridade_pais;
     private String tipo_alimentacao;
-    private double nota_exatas;
-    private double nota_linguagens;
-    private double nota_ciencias;
+    private Double nota_exatas;
+    private Double nota_linguagens;
+    private Double nota_ciencias;
     private double media_geral;
     private int rank_geral;
     private String desempenho;
@@ -32,7 +34,7 @@ public class Aluno {
 
     public Aluno(){}
 
-    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, double notas_exatas, double notas_linguagens, double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, Double notas_exatas, Double notas_linguagens, Double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
         this.nome = nome;
        // this.sobrenome = sobrenome;
         this.genero = genero;
@@ -65,7 +67,7 @@ public class Aluno {
 
     }
 
-    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao,String escolaridade_pais,double nota_linguagens,double nota_exatas,double nota_ciencias ){
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao,String escolaridade_pais,Double nota_linguagens,Double nota_exatas,Double nota_ciencias ){
         this.email= email;
         this.senha = senha;
         this.nome = nome;
@@ -73,6 +75,17 @@ public class Aluno {
         this.data_nascimento = data_nascimento;
         this.tipo_alimentacao =tipo_alimentacao;
         this.escolaridade_pais = escolaridade_pais;
+        this.nota_linguagens= nota_linguagens;
+        this.nota_exatas=nota_exatas;
+        this.nota_ciencias=nota_ciencias;
+
+    }
+
+    public Aluno(String nome,String email,int ano,char serie,double nota_linguagens,double nota_exatas,double nota_ciencias ){
+        this.nome = nome;
+        this.email = email;
+        this.ano = ano;
+        this.serie = serie;
         this.nota_linguagens= nota_linguagens;
         this.nota_exatas=nota_exatas;
         this.nota_ciencias=nota_ciencias;
@@ -107,15 +120,15 @@ public class Aluno {
         return this.tipo_alimentacao;
     }
 
-    public double getNota_exatas() {
+    public Double getNota_exatas() {
         return this.nota_exatas;
     }
 
-    public double getNota_linguagem() {
+    public Double getNota_linguagem() {
         return this.nota_linguagens;
     }
 
-    public double getNota_ciencias() {
+    public Double getNota_ciencias() {
         return this.nota_ciencias;
     }
 
@@ -145,6 +158,22 @@ public class Aluno {
 
     public String getStatus_final() {
         return this.status_final;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public char getSerie() {
+        return serie;
+    }
+
+    public double getNota_linguagens() {
+        return nota_linguagens;
     }
 
     public void setNome(String nome) {
@@ -211,8 +240,16 @@ public class Aluno {
         this.status_final = status_final;
     }
 
-    public String getEmail() {
-        return email;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setSerie(char serie) {
+        this.serie = serie;
     }
 
     public void setEmail(String email) {
@@ -233,6 +270,8 @@ public class Aluno {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", Genero='" + genero + '\'' +
+                ", ano='" + ano + '\'' +
+                ", serie='" + serie + '\'' +
                 ", Email=" + email + '\''+
                 ", Senha=" + senha + '\''+
                 ", data_nascimento=" + data_nascimento +

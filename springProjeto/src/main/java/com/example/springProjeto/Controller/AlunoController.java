@@ -2,11 +2,13 @@ package com.example.springProjeto.Controller;
 
 import com.example.springProjeto.DTO.CadastroRequest;
 
+import com.example.springProjeto.DTO.EditarRequest;
 import com.example.springProjeto.DTO.LoginRequest;
 import com.example.springProjeto.DTO.Response;
 import com.example.springProjeto.Model.Aluno;
 import com.example.springProjeto.Service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,7 +70,7 @@ public class AlunoController {
         }
     }
 
-    @DeleteMapping("/excluir-aluno")
+    @DeleteMapping("/excluir-aluno/{id}")
     public Response excluir(@PathVariable Long id,@RequestBody CadastroRequest cadastroRequest){
        boolean isValid = service.validarAluno(cadastroRequest.getEmail());
 
@@ -82,16 +84,17 @@ public class AlunoController {
 
     }
 
-    @PutMapping("/editar-aluno")
-    public Response atualizar(@PathVariable Long id, @RequestBody CadastroRequest cadastroRequest) {
-        boolean isValid = service.validarAluno(cadastroRequest.getEmail());
+    @PatchMapping("/editar/{id}")
+    public Response editarAluno(@PathVariable Long id,@RequestBody EditarRequest editarRequest) {
+        try{
+            service.editarAluno(editarRequest);
+            return new Response("Atualizado",true);
 
-        if (isValid) {
-            service.atualizarAluno(id, cadastroRequest);
-            return new Response("Usuário atualizado com sucesso", true);
-        } else {
-            return new Response("Usuário não existe", false);
         }
+        catch (RuntimeException e) {
+            return  new Response("Não erro",false);
+        }
+
     }
 
 
