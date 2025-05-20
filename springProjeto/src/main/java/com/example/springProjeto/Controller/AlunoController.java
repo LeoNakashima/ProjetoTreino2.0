@@ -1,13 +1,11 @@
 package com.example.springProjeto.Controller;
 
-import com.example.springProjeto.DTO.CadastroRequest;
+import com.example.springProjeto.DTO.*;
 
-import com.example.springProjeto.DTO.EditarRequest;
-import com.example.springProjeto.DTO.LoginRequest;
-import com.example.springProjeto.DTO.Response;
 import com.example.springProjeto.Model.Aluno;
 import com.example.springProjeto.Service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +27,9 @@ public class AlunoController {
 
     @GetMapping("/selecionar")
     public List<Aluno> selecionarAluno() {
+
         return service.listarAlunos();
+
     }
 
 
@@ -45,14 +45,14 @@ public class AlunoController {
     }
 
     @PostMapping("/cadastro-login")
-    public Response cadastro(@RequestBody CadastroRequest cadastroRequest){
-        boolean isValid = service.validarAluno(cadastroRequest.getEmail());
+    public Response cadastro(@RequestBody CadastroLoginRequest cadastrologin){
+        boolean isValid = service.validarAluno(cadastrologin.getEmail());
 
         if(isValid){
             return new Response("Usuário já existe",false);
         }
         else {
-            service.cadastrarAlunoLogin(cadastroRequest);
+            service.cadastrarAlunoLogin(cadastrologin);
             return new Response("Usuário cadastrado",true);
         }
     }
@@ -71,16 +71,10 @@ public class AlunoController {
     }
 
     @DeleteMapping("/excluir-aluno/{id}")
-    public Response excluir(@PathVariable Long id,@RequestBody CadastroRequest cadastroRequest){
-       boolean isValid = service.validarAluno(cadastroRequest.getEmail());
+    public void excluir(@PathVariable Long id){
+        service.deletarAluno(id);
 
-       if (isValid){
-           service.deletarAluno(id);
-           return new Response("Usuario deletado",true);
-       }
-       else{
-           return new Response("Usuario não existe",false);
-       }
+
 
     }
 

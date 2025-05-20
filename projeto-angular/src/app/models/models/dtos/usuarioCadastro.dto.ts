@@ -5,4 +5,4 @@ export interface UsuarioCadastro {
     genero: string;
     data_nascimento: Date;
     tipo_alimentacao: string;
-}
+}                                                                           

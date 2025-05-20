@@ -25,5 +25,24 @@
         </button>
       </div>
     </form>
+
+    
   </div>
 </div>
+
+<!-- Modal de Erro de cadastro -->
+<div class="overlay" *ng0If="cadastroRejeitado">
+  <div class="card" >
+    <div class="header">
+      <img src="../../assets/boneca.png" alt="Ícone de erro" class="modal-img">
+    </div>
+    <div class="content">
+      <div class="title">Você não está cadastrado no sistema</div>
+      <div class="description">Tente realizar o cadastro</div>
+    </div>
+    <div class="footer">
+      <button class="close-button" (click)="fecharErro()">Fechar</button>
+    </div>
+  </div>
+</div>
+

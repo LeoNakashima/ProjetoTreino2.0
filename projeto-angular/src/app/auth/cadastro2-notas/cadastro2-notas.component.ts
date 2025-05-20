@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CadastroNotasService } from '../../cadastro-notas.service';
 import { ToastService } from '../../toast.service';
+import { AlunoCadastro } from '../../models/models/dtos/alunoCadastro.dto';
+import { HttpService } from '../../models/models/services/http.service';
 
 @Component({
   selector: 'app-cadastro2-notas',
@@ -18,7 +20,8 @@ export class Cadastro2NotasComponent {
 
   constructor(private router:Router, 
     private cadastroNotasService: CadastroNotasService,
-    private toast:ToastService
+    private toast:ToastService,
+    private httpService: HttpService
   ){}
 
   descartar(){
@@ -26,10 +29,34 @@ export class Cadastro2NotasComponent {
 
   }
 
-  cadastrar(){
-    
-   
-    
+  cadastrar(event?:Event){
+     if (event) {
+      event.preventDefault(); // Evita o reload do form
+    }
+
+    const alunoCadastro: AlunoCadastro = {
+          email:this.email,
+          senha:this.senha,
+          nome:this.nome,
+          genero:this.genero,
+          data_nascimento:this.data_nascimento,
+          tipo_alimentacao:this.tipo_alimentacao
+        }
+   this.httpService.usuarioCadastro(alunoCadastro).subscribe(
+      (res: {sucesso:boolean}) =>{
+        if(res.sucesso==false){
+          this.router.navigate(['../notas'])
+        }
+        else{}
+      
+        
+      },
+      (error: any)=>{
+       
+        console.log("Erro ao cadastrar",error)
+      }
+
+    );
     
   }
 

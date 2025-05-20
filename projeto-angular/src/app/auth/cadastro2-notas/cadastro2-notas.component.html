@@ -25,13 +25,13 @@
       </div>
 
       <form>
-        <input type="number" placeholder="Linguagens"name="email" required />
+        <input type="number" placeholder="Linguagens"name="email" [(ngModel)]= "linguagens" required />
         <input type="number" placeholder="Exatas"name="email" required />
         <input type="number" placeholder="Ciências"name="email" required />
         
         <div class="button-group">
           <button  class="btn primary" (click)="descartar()">Descartar</button>
-          <button class="btn secondary" (click)="cadastrar()">
+          <button class="btn secondary" (submit)="cadastrar($event)">
             <img src="../../assets/iconCadastro.png" alt="" /> 
             Cadastrar
           </button>

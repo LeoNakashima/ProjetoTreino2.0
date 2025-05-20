@@ -5,6 +5,7 @@ import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { UsuarioCadastro } from '../../models/models/dtos/usuarioCadastro.dto';
 import { HttpService } from '../../models/models/services/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro',
@@ -20,15 +21,25 @@ export class CadastroComponent {
   genero: string = "";
   data_nascimento: Date = new Date();
   tipo_alimentacao: string = "";
+  cadastroRejeitado: boolean = false;
 
   usuariosCadastrados = [
     { email: 'teste@exemplo.com' },
     { email: 'outro@exemplo.com' }
   ];
 
-  constructor(private router: Router,private httpService: HttpService) {}
+  constructor(private router: Router,private route: ActivatedRoute,private httpService: HttpService) {}
 
-  fazerCadastro() {
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.cadastroRejeitado = params.get('error') === "true";
+    });
+  }
+
+  fazerCadastro(event?:Event) {
+    if (event) {
+      event.preventDefault(); // Evita o reload do form
+    }
     const usuarioCadastro: UsuarioCadastro = {
       email:this.email,
       senha:this.senha,
@@ -41,15 +52,24 @@ export class CadastroComponent {
     this.httpService.usuarioCadastro(usuarioCadastro).subscribe(
       (res: {sucesso:boolean}) =>{
         if(res.sucesso==false){
+          this.cadastroRejeitado = false;
           this.router.navigate(['../notas'])
         }
         else{
-
-          
+          this.cadastroRejeitado = true;
+      
         }
+      },
+      (error: any)=>{
+        this.cadastroRejeitado = false;
+        console.log("Erro ao cadastrar",error)
       }
 
     );
     
+  }
+
+  fecharErro() {
+    this.cadastroRejeitado = false;
   }
 }
