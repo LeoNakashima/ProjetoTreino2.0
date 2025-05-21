@@ -38,9 +38,9 @@ public class AlunoController {
         boolean isValid = service.validarLogin(loginRequest.getEmail(), loginRequest.getSenha());
 
         if (isValid) {
-            return new Response("Login concluido",true);
+            return new Response("Login concluido",true,HttpStatus.OK);
         }else {
-            return new Response("Email ou senha incorretos",false);
+            return new Response("Email ou senha incorretos",false,HttpStatus.NOT_FOUND);
         }
     }
 
@@ -49,11 +49,11 @@ public class AlunoController {
         boolean isValid = service.validarAluno(cadastrologin.getEmail());
 
         if(isValid){
-            return new Response("Usuário já existe",false);
+            return new Response("Usuário já existe",false,HttpStatus.CONFLICT);
         }
         else {
             service.cadastrarAlunoLogin(cadastrologin);
-            return new Response("Usuário cadastrado",true);
+            return new Response("Usuário cadastrado",true,HttpStatus.OK);
         }
     }
 
@@ -62,17 +62,26 @@ public class AlunoController {
         boolean isValid = service.validarAluno(cadastroRequest.getEmail());
 
         if(isValid){
-            return new Response("Usuário já existe",false);
+            return new Response("Usuário já existe",false,HttpStatus.CONFLICT);
         }
         else {
             service.cadastrarAluno(cadastroRequest);
-            return new Response("Usuário cadastrado",true);
+            return new Response("Usuário cadastrado",true, HttpStatus.OK);
         }
     }
 
     @DeleteMapping("/excluir-aluno/{id}")
-    public void excluir(@PathVariable Long id){
-        service.deletarAluno(id);
+    public Response excluir(@PathVariable Long id){
+        boolean isValid = service.Alunoexistir(id);
+        if(isValid){
+            return new Response("Usuário não deletado",false,HttpStatus.NOT_FOUND);
+        }
+        else {
+            service.deletarAluno(id);
+            return new Response("Usuário deletado",true,HttpStatus.OK);
+        }
+
+
 
 
 
@@ -80,13 +89,13 @@ public class AlunoController {
 
     @PatchMapping("/editar/{id}")
     public Response editarAluno(@PathVariable Long id,@RequestBody EditarRequest editarRequest) {
-        try{
-            service.editarAluno(editarRequest);
-            return new Response("Atualizado",true);
-
+        boolean isValid = service.Alunoexistir(id);
+        if(isValid){
+            return new Response("Usuário não editado",false,HttpStatus.NOT_FOUND);
         }
-        catch (RuntimeException e) {
-            return  new Response("Não erro",false);
+        else {
+            service.editarAluno(editarRequest);
+            return new Response("Usuário editado",true,HttpStatus.OK);
         }
 
     }

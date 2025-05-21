@@ -41,6 +41,7 @@ export class Cadastro2NotasComponent {
           genero:this.genero,
           data_nascimento:this.data_nascimento,
           tipo_alimentacao:this.tipo_alimentacao
+          
         }
    this.httpService.usuarioCadastro(alunoCadastro).subscribe(
       (res: {sucesso:boolean}) =>{

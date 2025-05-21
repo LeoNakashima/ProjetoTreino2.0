@@ -23,25 +23,19 @@ public class AlunoService {
 
     public List<Aluno> listarAlunos() {
         List<Aluno> produtos = alunoRepository.findAll();
-        if (produtos.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Nenhum produto encontrado.");
-        }
         return produtos;
     }
     public boolean validarLogin(String email, String senha) {
-        boolean alunoValido = alunoRepository.findAlunoByEmailAndSenha(email, senha).isPresent();
-        if (alunoValido==false){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum aluno encontrado");
-        }
         return alunoRepository.findAlunoByEmailAndSenha(email, senha).isPresent();
     }
 
     public boolean validarAluno(String email){
-        boolean alunoExiste = alunoRepository.existsByEmail(email);
-        if (alunoExiste==false){
-            throw  new ResponseStatusException(HttpStatus.NOT_FOUND,"Nenhum aluno encontrado");
-        }
+
         return alunoRepository.existsByEmail(email);
+    }
+    public boolean Alunoexistir(Long id){
+        return alunoRepository.findById(id).isPresent();
+
     }
 
     public void cadastrarAlunoLogin(CadastroLoginRequest cadastroLoginRequest){
@@ -50,10 +44,7 @@ public class AlunoService {
     }
     public void cadastrarAluno(CadastroRequest cadastroRequest){
         Aluno aluno = new Aluno(cadastroRequest.getEmail(), cadastroRequest.getSenha(), cadastroRequest.getNome(), cadastroRequest.getGenero(),cadastroRequest.getData_nascimento(), cadastroRequest.getTipo_alimentacao(),cadastroRequest.getEscolaridade_pais(), cadastroRequest.getNota_linguagens(), cadastroRequest.getNota_exatas(), cadastroRequest.getNota_ciencias());
-        Aluno alunoCadastrado = alunoRepository.save(aluno);
-        if (alunoCadastrado == null){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Falha ao cadastrar aluno");
-        }
+        alunoRepository.save(aluno);
     }
 
     public void editarAluno(EditarRequest editarRequest) {
@@ -78,7 +69,7 @@ public class AlunoService {
                 aluno.setNota_ciencias(editarRequest.getNota_ciencias());
             }
 
-            alunoRepository.save(aluno); // Salva após todas as alterações
+            alunoRepository.save(aluno);
         } else {
             throw new RuntimeException("Aluno não encontrado com o e-mail fornecido.");
         }
