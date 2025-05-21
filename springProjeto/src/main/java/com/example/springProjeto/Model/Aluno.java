@@ -81,7 +81,7 @@ public class Aluno {
 
     }
 
-    public Aluno(String nome,String email,int ano,char serie,double nota_linguagens,double nota_exatas,double nota_ciencias ){
+    public Aluno(String nome,String email,int ano,Character serie,double nota_linguagens,double nota_exatas,double nota_ciencias ){
         this.nome = nome;
         this.email = email;
         this.ano = ano;
@@ -168,7 +168,7 @@ public class Aluno {
         return ano;
     }
 
-    public char getSerie() {
+    public Character getSerie() {
         return serie;
     }
 
@@ -248,7 +248,7 @@ public class Aluno {
         this.ano = ano;
     }
 
-    public void setSerie(char serie) {
+    public void setSerie(Character serie) {
         this.serie = serie;
     }
 

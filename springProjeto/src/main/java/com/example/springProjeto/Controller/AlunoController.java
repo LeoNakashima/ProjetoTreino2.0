@@ -74,11 +74,11 @@ public class AlunoController {
     public Response excluir(@PathVariable Long id){
         boolean isValid = service.Alunoexistir(id);
         if(isValid){
-            return new Response("Usuário não deletado",false,HttpStatus.NOT_FOUND);
-        }
-        else {
             service.deletarAluno(id);
             return new Response("Usuário deletado",true,HttpStatus.OK);
+        }
+        else {
+            return new Response("Usuário não deletado",false,HttpStatus.NOT_FOUND);
         }
 
 
@@ -91,11 +91,11 @@ public class AlunoController {
     public Response editarAluno(@PathVariable Long id,@RequestBody EditarRequest editarRequest) {
         boolean isValid = service.Alunoexistir(id);
         if(isValid){
-            return new Response("Usuário não editado",false,HttpStatus.NOT_FOUND);
-        }
-        else {
             service.editarAluno(editarRequest);
             return new Response("Usuário editado",true,HttpStatus.OK);
+        }
+        else {
+            return new Response("Usuário não editado",false,HttpStatus.NOT_FOUND);
         }
 
     }
