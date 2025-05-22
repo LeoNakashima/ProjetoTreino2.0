@@ -5,6 +5,9 @@ export interface AlunoCadastro{
     data_nascimento: Date;
     tipo_alimentacao: string;
     escolaridade_pais: string;
-    nota: number;
-    disciplina: string;
+    linguagens: number;
+    exatas: number;
+    ciencias: number;
+    serie:string;
+    ano:number;
 }

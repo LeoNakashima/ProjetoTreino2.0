@@ -34,6 +34,10 @@ export class HttpService {
     );
   }
 
+  
+
+
+
   // Método para tratar erros nas requisições HTTP
   private handleError(error: HttpErrorResponse): Observable<never> {
     if (error.error instanceof ErrorEvent) {

@@ -28,7 +28,7 @@ export class CadastroComponent {
     { email: 'outro@exemplo.com' }
   ];
 
-  constructor(private router: Router,private route: ActivatedRoute,private httpService: HttpService) {}
+  constructor(private router: Router, private route: ActivatedRoute,private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

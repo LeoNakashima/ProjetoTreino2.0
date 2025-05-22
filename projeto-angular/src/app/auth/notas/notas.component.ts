@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../layout/header/header.component';
 import { SidebarComponent } from '../../layout/sidebar/sidebar.component';
 import { ToastService } from '../../toast.service';
+import { AlunoEditar } from '../../models/models/dtos/alunoEditar.dto';
+import { CadastroNotasService } from '../../cadastro-notas.service';
  
 
 interface Aluno {
@@ -38,7 +40,7 @@ export class NotasComponent implements OnInit {
   // Controle de menu por aluno
   menuAbertoId: number | null = null;
 
-  constructor(private router: Router, public toast: ToastService) {}
+  constructor(private router: Router, public toast: ToastService, public cadastroNotas: CadastroNotasService) {}
 
   ngOnInit(): void {
     // Simulação de dados
@@ -124,22 +126,36 @@ export class NotasComponent implements OnInit {
     this.menuAbertoId = this.menuAbertoId === aluno.id ? null : aluno.id;
   }
 
-  remover(aluno: Aluno): void {
-    const tamanhoAntes = this.alunos.length;
+  // remover(aluno: Aluno): void {
+  //   const tamanhoAntes = this.alunos.length;
   
-    this.alunos = this.alunos.filter(a => a.id !== aluno.id);
-    const tamanhoDepois = this.alunos.length;
+  //   this.alunos = this.alunos.filter(a => a.id !== aluno.id);
+  //   const tamanhoDepois = this.alunos.length;
   
-    this.atualizarPaginacao();
-    this.menuAbertoId = null;
+  //   this.atualizarPaginacao();
+  //   this.menuAbertoId = null;
   
-    const sucesso = tamanhoDepois < tamanhoAntes;
+  //   const sucesso = tamanhoDepois < tamanhoAntes;
   
-    if (sucesso) {
-      this.toast.exibirToast('Aluno removido!', '../../assets/aprovado.png');
-    } else {
-      this.toast.exibirToast('Ops! Não deu.', '../../assets/reprovado.png');
+  //   if (sucesso) {
+  //     this.toast.exibirToast('Aluno removido!', '../../assets/aprovado.png');
+  //   } else {
+  //     this.toast.exibirToast('Ops! Não deu.', '../../assets/reprovado.png');
+  //   }
+  // }
+
+  remover():void{
+    const aluno : AlunoEditar={
+      nome:this.cadastroNotas.nomeCompleto,
+      email:this.cadastroNotas.email,
+      ano:this.cadastroNotas.ano,
+      serie:this.cadastroNotas.serie,
+      data_nascimento:this.cadastroNotas.data_nascimento,
+      tipo_alimentacao:this.cadastroNotas.tipo_alimentacao,
+      escolaridade_pais:this.cadastroNotas.escolaridade,     
+
     }
+    
   }
 
   

@@ -4,8 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CadastroNotasService {
-  emailAluno: string = '';
+  email: string = '';
+  nomeCompleto: string ='';
+  genero: string='';
+  data_nascimento='';
+  tipo_alimentacao='';
+  escolaridade='';
+
+  
   
 
   constructor() { }
+
+  
+
+
 }

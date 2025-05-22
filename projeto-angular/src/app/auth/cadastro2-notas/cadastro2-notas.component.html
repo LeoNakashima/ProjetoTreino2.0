@@ -25,9 +25,11 @@
       </div>
 
       <form>
-        <input type="number" placeholder="Linguagens"name="email"  required />
-        <input type="number" placeholder="Exatas"name="email" required />
-        <input type="number" placeholder="Ciências"name="email" required />
+        <input type="number" placeholder="Linguagens"name="linguagens" [(ngModel)]="linguagens" required />
+        <input type="number" placeholder="Exatas"name="exatas"  [(ngModel)]="exatas" required />
+        <input type="number" placeholder="Ciências"name="ciencias"  [(ngModel)]="ciencias" required />
+         <input type="number" placeholder="Ano"name="ano"  [(ngModel)]="ano" required />
+        <input type="text" placeholder="Serie" name="serie"  [(ngModel)]="serie" required/>
         
         <div class="button-group">
           <button  class="btn primary" (click)="descartar()">Descartar</button>

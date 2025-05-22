@@ -15,6 +15,9 @@ public class CadastroRequest {
     private double nota_linguagens;
     private double nota_ciencias;
 
+    private Character serie;
+    private int ano;
+
     public String getEmail() {
         return email;
     }
@@ -52,5 +55,13 @@ public class CadastroRequest {
 
     public String getEscolaridade_pais() {
         return escolaridade_pais;
+    }
+
+    public String getSerie() {
+        return serie;
+    }
+
+    public int getAno() {
+        return ano;
     }
 }

@@ -14,6 +14,11 @@ import { CadastroNotasService } from '../../cadastro-notas.service';
 export class CadastroNotasComponent {
 
   email:string = "";
+  nomeCompleto: any;
+  genero: any;
+  data_nascimento: any;
+  tipo_alimentacao: any;
+  escolaridade: any;
 
 
 
@@ -25,7 +30,13 @@ export class CadastroNotasComponent {
   }
 
   proximo(){
-    this.cadastroNotasService.emailAluno = this.email
+    this.cadastroNotasService.email = this.email
+    this.cadastroNotasService.nomeCompleto = this.nomeCompleto
+    this.cadastroNotasService.genero = this.genero
+    this.cadastroNotasService.data_nascimento = this.data_nascimento
+    this.cadastroNotasService.tipo_alimentacao = this.tipo_alimentacao
+    this.cadastroNotasService.escolaridade=this.escolaridade
+  
     this.router.navigate(['cadastro2-notas'])
     
   }

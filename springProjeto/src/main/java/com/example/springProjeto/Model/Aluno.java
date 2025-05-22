@@ -32,6 +32,7 @@ public class Aluno {
     private String status_ciencias;
     private String status_final;
 
+
     public Aluno(){}
 
     public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String escolaridade_pais, String tipo_alimentacao, Double notas_exatas, Double notas_linguagens, Double notas_ciencias, double media_geral, int rank_geral, String desempenho, String status_exatas, String status_linguagem, String status_ciencias, String status_final) {
@@ -67,7 +68,7 @@ public class Aluno {
 
     }
 
-    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao,String escolaridade_pais,Double nota_linguagens,Double nota_exatas,Double nota_ciencias ){
+    public Aluno(String nome, String genero,String email, String senha, Date data_nascimento, String tipo_alimentacao,String escolaridade_pais,Double nota_linguagens,Double nota_exatas,Double nota_ciencias,Character serie, int ano ){
         this.email= email;
         this.senha = senha;
         this.nome = nome;
@@ -78,6 +79,8 @@ public class Aluno {
         this.nota_linguagens= nota_linguagens;
         this.nota_exatas=nota_exatas;
         this.nota_ciencias=nota_ciencias;
+        this.serie=serie;
+        this.ano=ano;
 
     }
 

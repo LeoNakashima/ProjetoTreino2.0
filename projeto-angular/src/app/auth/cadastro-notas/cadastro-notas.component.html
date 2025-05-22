@@ -26,13 +26,13 @@
     
 
     <form>
-      <input type="email" [(ngModel)]="email" placeholder="E-mail" name="email" required />
-      <input type="text" placeholder="Nome Completo"name="email" required />
-      <input type="text" placeholder="Gênero" name="email" required />
+      <input type="email" placeholder="E-mail" name="email"  [(ngModel)]="email" required />
+      <input type="text" placeholder="Nome Completo"name="nomeCompleto"  [(ngModel)]="nomeCompleto" required />
+      <input type="text" placeholder="Gênero" name="genero"  [(ngModel)]="genero" required />
       <input type="text" placeholder="Data de Nascimento" onfocus="this.type='date'" 
-      onblur="if (!this.value) this.type='text'" name="data_nascimento" required />
-      <input type="text" placeholder="Tipo de alimentação"name="email" required />
-      <input type="text" placeholder="Escolaridade Pais"name="email" required />
+      onblur="if (!this.value) this.type='text'" name="data_nascimento"  [(ngModel)]="data_nascimento" required />
+      <input type="text" placeholder="Tipo de alimentação"name="tipo_alimentacao"  [(ngModel)]="tipo_alimentacao" required />
+      <input type="text" placeholder="Escolaridade Pais"name="escolaridade"  [(ngModel)]="escolaridade" required />
 
       <div class="button-group">
         <button class="btn primary" (click)="descartar()">Descartar</button>
