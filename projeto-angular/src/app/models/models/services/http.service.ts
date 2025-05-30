@@ -20,6 +20,7 @@ export class HttpService {
     );
   }
 
+
   usuarioCadastro(user: UsuarioCadastro): Observable<any> {
     console.log(`${this.apiUrl}/cadastro/cadastrar-usuario`);  // Log para verificar a URL
     return this.http.post(`${this.apiUrl}/cadastro/cadastrar-usuario`, user).pipe(
